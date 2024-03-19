@@ -1,0 +1,159 @@
+<mvc:View controllerName="validatorsandbox.controller.View"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form">
+	<Page id="page" title="{i18n>title}">
+		<content>
+			<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="Address" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+				<f:content>
+					<Label text="Checkbox"></Label>
+					<CheckBox id="checkboxId" customData:required="true"></CheckBox>
+					<Label text="Date Range Selection"></Label>
+					<DateRangeSelection required="true"></DateRangeSelection>
+					<Label text="Date Time Picker"></Label>
+					<DateTimePicker required="true"></DateTimePicker>
+					<Label text="StepInput"></Label>
+					<StepInput required="true" min="-1" max="10"></StepInput>
+					<Label text="RadioButtonGroup"></Label>
+					<RadioButtonGroup customData:required="true" selectedIndex="-1" columns="3" class="sapUiMediumMarginBottom">
+						<RadioButton text="Yes" selected="{viewModel>/radioButton}"/>
+						<RadioButton text="No" selected="{= ${viewModel>/radioButton} === false ? true : false}"/>
+					</RadioButtonGroup>
+					<Label text="Mask Input"></Label>
+					<MaskInput mask="**********" placeholderSymbol="_" required="true">
+						<rules>
+							<MaskInputRule/>
+						</rules>
+					</MaskInput>
+					<Label text="Multi ComboBox"></Label>
+					<MultiComboBox required="true" selectionChange="handleSelectionChange" selectionFinish="handleSelectionFinish" width="350px" items="{
+						path: 'oDataModel>/ProductCollection',
+						sorter: { path: 'Name' }
+					}">
+						<core:Item key="{oDataModel>ProductId}" text="{oDataModel>Name}"/>
+					</MultiComboBox>
+					<Label text="Multi Input"></Label>
+					<MultiInput required="true" width="70%" showClearIcon="true" id="multiInput" suggestionItems="{
+						path: 'oDataModel>/ProductCollection',
+						sorter: { path: 'Name' }
+					}" showValueHelp="false">
+						<core:Item key="{oDataModel>ProductId}" text="{oDataModel>Name}" />
+					</MultiInput>
+					<Label text="Time Picker"></Label>
+					<TimePicker required="true"></TimePicker>
+					<Label text="Name" />
+					<Input id="name" value="{viewModel>/Name}" required="true" liveChange="onLiveChangeTest"/>
+					<Label text="Street/No." />
+					<Input value="" type="Number" required="true">
+					</Input>
+					<Input value="">
+						<layoutData>
+							<l:GridData span="XL1 L2 M2 S4" />
+						</layoutData>
+					</Input>
+					<Label text="ZIP Code/City" />
+					<Input value="" type="Number" required="true">
+						<layoutData>
+							<l:GridData span="XL1 L2 M2 S4" />
+						</layoutData>
+					</Input>
+					<Input value="" type="Number" required="true"/>
+					<Label text="Country" />
+					<Select id="country" selectedKey="">
+						<items>
+							<core:Item text="England" key="England"/>
+							<core:Item text="Germany" key="Germany"/>
+							<core:Item text="USA" key="USA"/>
+						</items>
+					</Select>
+				</f:content>
+			</f:SimpleForm>
+			<VBox class="sapUiSmallMargin">
+				<Label text="Input1" required="true"></Label>
+				<Input required="true" value="" class="sapUiSmallMarginTopBottom"/>
+				<Label text="Input2" required="true"></Label>
+				<Input required="true" value="" class="sapUiSmallMarginTopBottom"/>
+				<Label text="Input3" required="false"></Label>
+				<Input value="" class="sapUiSmallMarginTopBottom"/>
+			</VBox>
+			<VBox class="sapUiSmallMargin sapUiLargeMarginTop">
+				<HBox class="sapUiSmallMargin">
+					<VBox class="sapUiSmallMargin">
+						<Label text="Input4" required="true"></Label>
+						<Input required="true" value="" class="sapUiSmallMarginTopBottom"/>
+						<Label text="Input5" required="false"></Label>
+						<Input required="false" value="" class="sapUiSmallMarginTopBottom"/>
+					</VBox>
+					<VBox class="sapUiSmallMargin">
+						<Label text="Input6" required="false"></Label>
+						<Input required="false" value="" class="sapUiSmallMarginTopBottom"/>
+						<Label text="Input7" required="true"></Label>
+						<Input required="true" value="" class="sapUiSmallMarginTopBottom"/>
+					</VBox>
+					<VBox class="sapUiSmallMargin">
+						<Label text="Input8" required="true"></Label>
+						<Input required="true" value="" class="sapUiSmallMarginTopBottom"/>
+						<Label text="Input9" required="true"></Label>
+						<Input required="true" value="" class="sapUiSmallMarginTopBottom"/>
+					</VBox>
+				</HBox>
+				<Label text="Input3" required="false"></Label>
+				<Input value="" class="sapUiSmallMarginTopBottom"/>
+			</VBox>
+			<VBox class="sapUiSmallMargin sapUiLargeMarginTop">
+				<HBox class="sapUiSmallMargin">
+					<VBox class="sapUiSmallMargin">
+						<Label text="Input4" required="true"></Label>
+						<Input required="true" value="" class="sapUiSmallMarginTopBottom"/>
+						<Label text="Input5" required="false"></Label>
+						<Input required="false" value="" class="sapUiSmallMarginTopBottom"/>
+					</VBox>
+					<VBox class="sapUiSmallMargin">
+						<Label text="Input6" required="false"></Label>
+						<Input required="false" value="" class="sapUiSmallMarginTopBottom"/>
+						<Label text="Input7" required="true"></Label>
+						<Input required="true" value="" class="sapUiSmallMarginTopBottom"/>
+					</VBox>
+					<VBox class="sapUiSmallMargin">
+						<Label text="Input8" required="true"></Label>
+						<Input required="true" value="" class="sapUiSmallMarginTopBottom"/>
+						<Label text="Input9" required="true"></Label>
+						<Input required="true" value="" class="sapUiSmallMarginTopBottom"/>
+					</VBox>
+				</HBox>
+				<Label text="Input3" required="false"></Label>
+				<Input value="" class="sapUiSmallMarginTopBottom"/>
+			</VBox>
+			<VBox class="sapUiSmallMargin sapUiLargeMarginTop" items="{
+				path: 'oDataModel>/ProductCollection'
+			}">
+				<VBox class="sapUiLargeMarginTopBottom" width="50%">
+					<Label text="{oDataModel>Name}" design="Bold" required="{= ${oDataModel>Quantity} > 15}"/>
+					<Input class="sapUiSmallMarginBeginEnd" value="{
+						 parts: [
+							{path: 'oDataModel>Price'},
+							{path: 'viewModel>/property'}
+						 ]
+						}" required="{= ${oDataModel>Quantity} > 15}"/>
+						<Input class="sapUiSmallMarginBeginEnd" value="{oDataModel>Price}" required="{= ${oDataModel>Quantity} > 15}"/>
+					<DatePicker class="sapUiSmallMarginBeginEnd" id="DP" width="100%" value="" required="{= ${oDataModel>Quantity} > 15}" />
+					<ComboBox class="sapUiSmallMarginBeginEnd" value="" required="{= ${oDataModel>Quantity} > 15}" items="{
+							path: '/ProductCollection',
+							sorter: { path: 'Name' }
+						}">
+						<core:Item key="{ProductId}" text="{Name}" />
+					</ComboBox>
+				</VBox>
+			</VBox>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Validate" press="onValidatePress"></Button>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
